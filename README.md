@@ -1,5 +1,5 @@
 # 刀 (ka·ta·na)
-An modern, open-source (GPLv3) English <-> Japanese dictionary for Android.
+A modern, open-source, English ⇄ Japanese dictionary with a native Android client.
 
 ## Structure
 
