@@ -1,4 +1,4 @@
-# Katana
+# 刀 (ka·ta·na)
 An modern, open-source (GPLv3) English <-> Japanese dictionary for Android.
 
 ## Structure
@@ -11,4 +11,4 @@ An modern, open-source (GPLv3) English <-> Japanese dictionary for Android.
 
 ## Setup
 
-Make sure `/go` is added to your `GO_PATH`.
+1. Make sure `/go` is added to your `GO_PATH`.
