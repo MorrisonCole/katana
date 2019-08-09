@@ -37,5 +37,5 @@ func main() {
 		fmt.Printf("error: %v", err)
 		return
 	}
-	os.Stdout.Write(out)
+	ioutil.WriteFile("jmdict.json", out, 0644)
 }
