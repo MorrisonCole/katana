@@ -1,10 +1,10 @@
 package server
 
 import (
+	"cloud.google.com/go/datastore"
 	"context"
 	"fmt"
-
-	"cloud.google.com/go/datastore"
+	"log"
 )
 
 type datastoreDB struct {
@@ -46,6 +46,18 @@ func (db *datastoreDB) ListEntries() ([]*Entry, error) {
 
 	for i, k := range keys {
 		entries[i].ID = k.ID
+	}
+
+	return entries, nil
+}
+
+func (db *datastoreDB) QueryByReading(word string) ([]Entry, error) {
+	query := datastore.NewQuery("Entry").Filter("Readings = ", word).Order("ID")
+
+	var entries []Entry
+	_, err := db.client.GetAll(context.Background(), query, &entries)
+	if err != nil {
+		log.Fatal(err)
 	}
 
 	return entries, nil

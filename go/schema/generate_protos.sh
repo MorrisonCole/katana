@@ -1,3 +1,3 @@
 #!/bin/sh
 
-protoc -I ./ ./helloworld.proto --go_out=plugins=grpc:.
+protoc -I ./ ./dictionary.proto --go_out=plugins=grpc:.

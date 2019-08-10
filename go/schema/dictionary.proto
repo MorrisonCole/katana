@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package server;
+
+service Dictionary {
+  rpc RequestDefinition (DefinitionRequest) returns (DefinitionResponse) {}
+}
+
+message DefinitionRequest {
+  string word = 1;
+}
+
+message DefinitionResponse {
+  repeated string definition = 1;
+}

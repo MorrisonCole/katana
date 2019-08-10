@@ -1,0 +1,6 @@
+indexes:
+
+  - kind: Entry
+    properties:
+      - name: Readings
+      - name: ID
