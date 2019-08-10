@@ -8,3 +8,8 @@ A modern, open-source, English ⇄ Japanese dictionary with a native Android cli
 ├── go (Go services)
 ├── android (Android client)
 ```
+
+## Architecture
+
+![Architecture diagram](/architecture.png?raw=true "Architecture")
+
