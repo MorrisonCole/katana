@@ -9,6 +9,6 @@ A modern, open-source, English ⇄ Japanese dictionary with a native Android cli
 ├── android (Android client)
 ```
 
-## Setup
+## Developer Setup
 
-1. Follow Go [quick start](https://grpc.io/docs/quickstart/go/)
+1. Follow the [Go quick start guide](https://grpc.io/docs/quickstart/go/).
