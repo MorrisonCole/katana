@@ -1,19 +1,20 @@
 package server
 
-type Definition struct {
-	ID int64
+type Entry struct {
+	ID          int64
+	Definitions []string
 }
 
 type DictionaryDatabase interface {
-	ListDefinitions() ([]*Definition, error)
+	ListEntries() ([]*Entry, error)
 
-	GetDefinition(id int64) (*Definition, error)
+	GetEntry(id int64) (*Entry, error)
 
-	AddDefinition(b *Definition) (id int64, err error)
+	AddEntry(b *Entry) (id int64, err error)
 
-	DeleteDefinition(id int64) error
+	DeleteEntry(id int64) error
 
-	UpdateDefinition(b *Definition) error
+	UpdateEntry(b *Entry) error
 
 	Close()
 }

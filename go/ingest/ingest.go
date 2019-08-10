@@ -5,16 +5,13 @@ import (
 	"com.morrisoncole/katana/ingest/model"
 	"encoding/json"
 	"encoding/xml"
-	"fmt"
 	"io/ioutil"
 	"log"
 	"os"
 )
 
-const jmDictPath = "jmdict.xml"
-
-func Ingest() {
-	jmDictXml, err := os.Open(jmDictPath)
+func Ingest(path string) *model.JMDict {
+	jmDictXml, err := os.Open(path + ".xml")
 
 	if err != nil {
 		log.Fatal(err)
@@ -28,14 +25,14 @@ func Ingest() {
 	d.Entity = model.EntityMap
 	xmlErr := d.Decode(&jmDict)
 	if xmlErr != nil {
-		fmt.Printf("error: %v", xmlErr)
-		return
+		log.Fatalf("error: %v", xmlErr)
 	}
 
 	out, err := json.MarshalIndent(jmDict, "", "  ")
 	if err != nil {
-		fmt.Printf("error: %v", err)
-		return
+		log.Fatalf("error: %v", err)
 	}
-	ioutil.WriteFile("jmdict.json", out, 0644)
+	ioutil.WriteFile(path+"_output.json", out, 0644)
+
+	return &jmDict
 }
