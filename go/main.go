@@ -1,8 +1,8 @@
-package main
+package _go
 
 import (
 	"bytes"
-	"com.morrisoncole/jmdict/model"
+	"com.morrisoncole/katana/model"
 	"encoding/json"
 	"encoding/xml"
 	"fmt"

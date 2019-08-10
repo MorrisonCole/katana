@@ -60,3 +60,6 @@ fastlane/readme.md
 
 # JMDict
 jmdict.json
+
+# Go
+vendor/
