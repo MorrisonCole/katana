@@ -15,10 +15,16 @@ const (
 
 type server struct{}
 
-// SayHello implements helloworld.GreeterServer
-func (s *server) SayHello(ctx context.Context, in *pb.HelloRequest) (*pb.HelloReply, error) {
-	log.Printf("Received: %v", in.Name)
-	return &pb.HelloReply{Message: "Hello " + in.Name}, nil
+func (s *server) RequestDefinition(ctx context.Context, in *pb.DefinitionRequest) (*pb.DefinitionResponse, error) {
+	log.Printf("Received definition request: %v", in.Word)
+
+	reading, err := DB.QueryByReading(in.Word)
+
+	if err != nil {
+		return &pb.DefinitionResponse{Definition: []string{"No definition found"}}, nil
+	}
+
+	return &pb.DefinitionResponse{Definition: reading[0].Definitions}, nil
 }
 
 func Serve() {
@@ -27,7 +33,7 @@ func Serve() {
 		log.Fatalf("failed to listen: %v", err)
 	}
 	s := grpc.NewServer()
-	pb.RegisterGreeterServer(s, &server{})
+	pb.RegisterDictionaryServer(s, &server{})
 	if err := s.Serve(lis); err != nil {
 		log.Fatalf("failed to serve: %v", err)
 	}

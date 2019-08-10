@@ -14,7 +14,9 @@ func main() {
 	log.Println("Connecting to Cloud SQL")
 	server.Init()
 
-	_, err := server.DB.AddEntry(&server.Entry{Definitions: jmDict.Entries[0].SenseElements[0].Glossary})
+	firstReading := jmDict.Entries[0].ReadingElements[0].KReb
+	definitions := jmDict.Entries[0].SenseElements[0].Glossary
+	_, err := server.DB.AddEntry(&server.Entry{Definitions: definitions, Readings: []string{firstReading}})
 	if err != nil {
 		log.Fatal(err)
 	}

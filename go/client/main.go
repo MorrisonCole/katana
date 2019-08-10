@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 	"log"
-	"os"
 	"time"
 
 	pb "com.morrisoncole/katana/schema"
@@ -11,8 +10,7 @@ import (
 )
 
 const (
-	address     = "localhost:50051"
-	defaultName = "world"
+	address = "localhost:50051"
 )
 
 func main() {
@@ -22,18 +20,17 @@ func main() {
 		log.Fatalf("did not connect: %v", err)
 	}
 	defer conn.Close()
-	c := pb.NewGreeterClient(conn)
+	c := pb.NewDictionaryClient(conn)
 
-	// Contact the server and print out its response.
-	name := defaultName
-	if len(os.Args) > 1 {
-		name = os.Args[1]
-	}
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 	defer cancel()
-	r, err := c.SayHello(ctx, &pb.HelloRequest{Name: name})
+	requestDefinition(c, ctx, "かたな")
+}
+
+func requestDefinition(client pb.DictionaryClient, context context.Context, word string) {
+	r, err := client.RequestDefinition(context, &pb.DefinitionRequest{Word: word})
 	if err != nil {
-		log.Fatalf("could not greet: %v", err)
+		log.Fatalf("could not get definition: %v", err)
 	}
-	log.Printf("Greeting: %s", r.Message)
+	log.Printf("Got definition: %s", r.Definition)
 }
