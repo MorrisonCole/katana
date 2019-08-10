@@ -5,11 +5,10 @@ A modern, open-source, English ⇄ Japanese dictionary with a native Android cli
 
 ```
 .
-├── go (root for all Go services)
-├── android (root of Android project)
+├── go (Go services)
+├── android (Android client)
 ```
 
 ## Setup
 
-1. Make sure `/go` is added to your `GO_PATH`.
-2. Follow Go [quick start](https://grpc.io/docs/quickstart/go/)
+1. Follow Go [quick start](https://grpc.io/docs/quickstart/go/)
