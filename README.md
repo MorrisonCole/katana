@@ -10,6 +10,5 @@ A modern, open-source, English ⇄ Japanese dictionary with a native Android cli
 ```
 
 ## Architecture
-
 ![Architecture diagram](/architecture.png?raw=true "Architecture")
 
