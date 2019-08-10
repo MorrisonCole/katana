@@ -12,3 +12,4 @@ A modern, open-source, English ⇄ Japanese dictionary with a native Android cli
 ## Developer Setup
 
 1. Follow the [Go quick start guide](https://grpc.io/docs/quickstart/go/).
+2. Follow the [Google Cloud SDK quick start guide](https://cloud.google.com/sdk/docs/quickstarts).
