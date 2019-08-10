@@ -6,17 +6,19 @@ import (
 	"log"
 )
 
+var DB DictionaryDatabase
+
 func Init() {
 	var err error
 
-	DB, err := configureDatastoreDB("katana-249402")
+	DB, err = configureDatastoreDB("katana-249402")
 
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	log.Println("Listing definitions...")
-	definitions, err := DB.ListDefinitions()
+	log.Println("Listing Definitions...")
+	definitions, err := DB.ListEntries()
 
 	for _, definition := range definitions {
 		log.Println(&definition.ID)

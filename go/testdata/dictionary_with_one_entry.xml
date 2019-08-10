@@ -1,0 +1,46 @@
+<JMdict>
+    <entry>
+        <ent_seq>1446420</ent_seq>
+        <k_ele>
+            <keb>刀</keb>
+            <ke_pri>ichi1</ke_pri>
+            <ke_pri>news1</ke_pri>
+            <ke_pri>nf12</ke_pri>
+        </k_ele>
+        <r_ele>
+            <reb>かたな</reb>
+            <re_pri>ichi1</re_pri>
+            <re_pri>news1</re_pri>
+            <re_pri>nf12</re_pri>
+        </r_ele>
+        <r_ele>
+            <reb>とう</reb>
+        </r_ele>
+        <sense>
+            <pos>&n;</pos>
+            <gloss>(single-edged) sword</gloss>
+            <gloss>katana</gloss>
+        </sense>
+        <sense>
+            <gloss>dagger</gloss>
+            <gloss>knife</gloss>
+        </sense>
+        <sense>
+            <stagr>とう</stagr>
+            <gloss>scalpel</gloss>
+        </sense>
+        <sense>
+            <stagr>とう</stagr>
+            <xref>彫刻刀・ちょうこくとう</xref>
+            <gloss>chisel</gloss>
+            <gloss>burin</gloss>
+            <gloss>graver</gloss>
+        </sense>
+        <sense>
+            <stagr>とう</stagr>
+            <xref>刀銭</xref>
+            <gloss>knife money</gloss>
+            <gloss g_type="expl">knife-shaped commodity money used in Zhou dynasty China</gloss>
+        </sense>
+    </entry>
+</JMdict>

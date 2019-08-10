@@ -29,63 +29,63 @@ func newDatastoreDB(client *datastore.Client) (DictionaryDatabase, error) {
 }
 
 func (db *datastoreDB) datastoreKey(id int64) *datastore.Key {
-	return datastore.IDKey("Definition", id, nil)
+	return datastore.IDKey("Entry", id, nil)
 }
 
-func (db *datastoreDB) ListDefinitions() ([]*Definition, error) {
+func (db *datastoreDB) ListEntries() ([]*Entry, error) {
 	ctx := context.Background()
-	definitions := make([]*Definition, 0)
-	q := datastore.NewQuery("Definition").
+	entries := make([]*Entry, 0)
+	q := datastore.NewQuery("Entry").
 		Order("Title")
 
-	keys, err := db.client.GetAll(ctx, q, &definitions)
+	keys, err := db.client.GetAll(ctx, q, &entries)
 
 	if err != nil {
-		return nil, fmt.Errorf("datastoredb: could not list definitions: %v", err)
+		return nil, fmt.Errorf("datastoredb: could not list entries: %v", err)
 	}
 
 	for i, k := range keys {
-		definitions[i].ID = k.ID
+		entries[i].ID = k.ID
 	}
 
-	return definitions, nil
+	return entries, nil
 }
 
-func (db *datastoreDB) GetDefinition(id int64) (*Definition, error) {
+func (db *datastoreDB) GetEntry(id int64) (*Entry, error) {
 	ctx := context.Background()
 	k := db.datastoreKey(id)
-	definition := &Definition{}
-	if err := db.client.Get(ctx, k, definition); err != nil {
-		return nil, fmt.Errorf("datastoredb: could not get Definition: %v", err)
+	entry := &Entry{}
+	if err := db.client.Get(ctx, k, entry); err != nil {
+		return nil, fmt.Errorf("datastoredb: could not get Entry: %v", err)
 	}
-	definition.ID = id
-	return definition, nil
+	entry.ID = id
+	return entry, nil
 }
 
-func (db *datastoreDB) AddDefinition(b *Definition) (id int64, err error) {
+func (db *datastoreDB) AddEntry(b *Entry) (id int64, err error) {
 	ctx := context.Background()
-	k := datastore.IncompleteKey("Definition", nil)
+	k := datastore.IncompleteKey("Entry", nil)
 	k, err = db.client.Put(ctx, k, b)
 	if err != nil {
-		return 0, fmt.Errorf("datastoredb: could not put Definition: %v", err)
+		return 0, fmt.Errorf("datastoredb: could not put Entry: %v", err)
 	}
 	return k.ID, nil
 }
 
-func (db *datastoreDB) DeleteDefinition(id int64) error {
+func (db *datastoreDB) DeleteEntry(id int64) error {
 	ctx := context.Background()
 	k := db.datastoreKey(id)
 	if err := db.client.Delete(ctx, k); err != nil {
-		return fmt.Errorf("datastoredb: could not delete Definition: %v", err)
+		return fmt.Errorf("datastoredb: could not delete Entry: %v", err)
 	}
 	return nil
 }
 
-func (db *datastoreDB) UpdateDefinition(b *Definition) error {
+func (db *datastoreDB) UpdateEntry(b *Entry) error {
 	ctx := context.Background()
 	k := db.datastoreKey(b.ID)
 	if _, err := db.client.Put(ctx, k, b); err != nil {
-		return fmt.Errorf("datastoredb: could not update Definition: %v", err)
+		return fmt.Errorf("datastoredb: could not update Entry: %v", err)
 	}
 	return nil
 }

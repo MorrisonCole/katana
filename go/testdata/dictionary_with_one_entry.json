@@ -1,0 +1,131 @@
+{
+  "Entries": [
+    {
+      "KanjiElements": [
+        {
+          "Keb": "刀",
+          "KanjiElementInfo": null,
+          "KanjiElementPriority": [
+            "ichi1",
+            "news1",
+            "nf12"
+          ]
+        }
+      ],
+      "ReadingElements": [
+        {
+          "KReb": "かたな",
+          "NoKanji": "",
+          "RestrictedTo": null,
+          "ReadingElementInfo": null,
+          "ReadingElementPriority": [
+            "ichi1",
+            "news1",
+            "nf12"
+          ]
+        },
+        {
+          "KReb": "とう",
+          "NoKanji": "",
+          "RestrictedTo": null,
+          "ReadingElementInfo": null,
+          "ReadingElementPriority": null
+        }
+      ],
+      "SenseElements": [
+        {
+          "RestrictedToKanji": null,
+          "RestrictedToReading": null,
+          "PartOfSpeech": [
+            "noun (common) (futsuumeishi)"
+          ],
+          "CrossReference": null,
+          "Antonym": null,
+          "Field": null,
+          "MiscInfo": null,
+          "SenseInfo": null,
+          "LanguageSource": null,
+          "Dialect": null,
+          "Glossary": [
+            "(single-edged) sword",
+            "katana"
+          ]
+        },
+        {
+          "RestrictedToKanji": null,
+          "RestrictedToReading": null,
+          "PartOfSpeech": null,
+          "CrossReference": null,
+          "Antonym": null,
+          "Field": null,
+          "MiscInfo": null,
+          "SenseInfo": null,
+          "LanguageSource": null,
+          "Dialect": null,
+          "Glossary": [
+            "dagger",
+            "knife"
+          ]
+        },
+        {
+          "RestrictedToKanji": null,
+          "RestrictedToReading": [
+            "とう"
+          ],
+          "PartOfSpeech": null,
+          "CrossReference": null,
+          "Antonym": null,
+          "Field": null,
+          "MiscInfo": null,
+          "SenseInfo": null,
+          "LanguageSource": null,
+          "Dialect": null,
+          "Glossary": [
+            "scalpel"
+          ]
+        },
+        {
+          "RestrictedToKanji": null,
+          "RestrictedToReading": [
+            "とう"
+          ],
+          "PartOfSpeech": null,
+          "CrossReference": [
+            "彫刻刀・ちょうこくとう"
+          ],
+          "Antonym": null,
+          "Field": null,
+          "MiscInfo": null,
+          "SenseInfo": null,
+          "LanguageSource": null,
+          "Dialect": null,
+          "Glossary": [
+            "chisel",
+            "burin",
+            "graver"
+          ]
+        },
+        {
+          "RestrictedToKanji": null,
+          "RestrictedToReading": [
+            "とう"
+          ],
+          "PartOfSpeech": null,
+          "CrossReference": [
+            "刀銭"
+          ],
+          "Antonym": null,
+          "Field": null,
+          "MiscInfo": null,
+          "SenseInfo": null,
+          "LanguageSource": null,
+          "Dialect": null,
+          "Glossary": [
+            "knife money",
+            "knife-shaped commodity money used in Zhou dynasty China"
+          ]
+        }
+      ]
+    }
+  ]
+}
