@@ -1,68 +1,34 @@
 package server
 
 import (
-	"bytes"
-	"database/sql"
-	"fmt"
+	"cloud.google.com/go/datastore"
+	"context"
 	"log"
-	"net/http"
-	"os"
-
-	"google.golang.org/appengine"
-
-	_ "github.com/go-sql-driver/mysql"
 )
 
-var db *sql.DB
-
-func Connect() {
-	var (
-		connectionName = mustGetenv("CLOUDSQL_CONNECTION_NAME")
-		user           = mustGetenv("CLOUDSQL_USER")
-		password       = os.Getenv("CLOUDSQL_PASSWORD") // NOTE: password may be empty
-	)
-
+func Init() {
 	var err error
-	db, err = sql.Open("mysql", fmt.Sprintf("%s:%s@cloudsql(%s)/", user, password, connectionName))
+
+	DB, err := configureDatastoreDB("katana-249402")
+
 	if err != nil {
-		log.Fatalf("Could not open db: %v", err)
+		log.Fatal(err)
 	}
 
-	http.HandleFunc("/", handler)
-	appengine.Main()
+	log.Println("Listing definitions...")
+	definitions, err := DB.ListDefinitions()
+
+	for _, definition := range definitions {
+		log.Println(&definition.ID)
+	}
+	log.Println("Done!")
 }
 
-func handler(w http.ResponseWriter, r *http.Request) {
-	if r.URL.Path != "/" {
-		http.NotFound(w, r)
-		return
-	}
-
-	w.Header().Set("Content-Type", "text/plain")
-
-	rows, err := db.Query("SHOW DATABASES")
+func configureDatastoreDB(projectID string) (DictionaryDatabase, error) {
+	ctx := context.Background()
+	client, err := datastore.NewClient(ctx, projectID)
 	if err != nil {
-		http.Error(w, fmt.Sprintf("Could not query db: %v", err), 500)
-		return
+		return nil, err
 	}
-	defer rows.Close()
-
-	buf := bytes.NewBufferString("Databases:\n")
-	for rows.Next() {
-		var dbName string
-		if err := rows.Scan(&dbName); err != nil {
-			http.Error(w, fmt.Sprintf("Could not scan result: %v", err), 500)
-			return
-		}
-		fmt.Fprintf(buf, "- %s\n", dbName)
-	}
-	w.Write(buf.Bytes())
-}
-
-func mustGetenv(k string) string {
-	v := os.Getenv(k)
-	if v == "" {
-		log.Panicf("%s environment variable not set.", k)
-	}
-	return v
+	return newDatastoreDB(client)
 }
