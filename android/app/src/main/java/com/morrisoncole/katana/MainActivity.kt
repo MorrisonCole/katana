@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun requestAsync() {
         coroutineScope.launch {
-            Log.println(Log.ERROR, "blag", "Making request...")
+            Log.println(Log.ERROR, "blah", "Making request...")
             val definitionRequest = DefinitionRequest("かたな")
 
             val grpcClient = GrpcClient.Builder()
@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
                 .build()
             val dictionaryService = grpcClient.create(Dictionary::class)
             val response = dictionaryService.RequestDefinition(definitionRequest)
-            Log.println(Log.ERROR, "blag", response.definition[0])
+            Log.println(Log.ERROR, "blah", response.definition[0])
         }
     }
 }
