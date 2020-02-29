@@ -63,3 +63,9 @@ jmdict.json
 
 # Go
 vendor/
+
+# Bazel
+bazel-bin/
+bazel-katana/
+bazel-out/
+bazel-testlogs/
