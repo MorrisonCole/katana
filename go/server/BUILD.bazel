@@ -1,0 +1,18 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "db.go",
+        "db_datastore.go",
+        "dictionary.go",
+        "server.go",
+    ],
+    importpath = "com.morrisoncole/katana/go/server",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//go/schema:go_default_library",
+        "@com_google_cloud_go//datastore:go_default_library",
+        "@org_golang_google_grpc//:go_default_library",
+    ],
+)
