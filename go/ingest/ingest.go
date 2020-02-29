@@ -2,7 +2,7 @@ package ingest
 
 import (
 	"bytes"
-	"com.morrisoncole/katana/ingest/model"
+	"com.morrisoncole/katana/go/ingest/model"
 	"encoding/json"
 	"encoding/xml"
 	"io/ioutil"

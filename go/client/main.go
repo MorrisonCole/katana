@@ -5,7 +5,7 @@ import (
 	"log"
 	"time"
 
-	pb "com.morrisoncole/katana/schema"
+	pb "com.morrisoncole/katana/go/schema"
 	"google.golang.org/grpc"
 )
 

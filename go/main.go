@@ -1,8 +1,8 @@
 package main
 
 import (
-	"com.morrisoncole/katana/ingest"
-	"com.morrisoncole/katana/server"
+	"com.morrisoncole/katana/go/ingest"
+	"com.morrisoncole/katana/go/server"
 	"log"
 )
 
