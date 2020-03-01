@@ -9,5 +9,5 @@ require (
 	github.com/googleapis/gax-go v2.0.2+incompatible // indirect
 	go.opencensus.io v0.22.0 // indirect
 	google.golang.org/api v0.8.0 // indirect
-	google.golang.org/grpc v1.22.1
+	google.golang.org/grpc v1.27.1
 )

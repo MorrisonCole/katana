@@ -9,6 +9,15 @@ A modern, open-source, English ⇄ Japanese dictionary with a native Android cli
 ├── android (Android client)
 ```
 
+## Update Workspace Dependencies
+```
+bazel run //:gazelle -- update-repos -from_file=go.mod
+```
+
+## Build Go
+```
+bazel build go
+```
+
 ## Architecture
 ![Architecture diagram](/architecture.png?raw=true "Architecture")
-
